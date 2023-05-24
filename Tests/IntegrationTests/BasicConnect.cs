@@ -38,4 +38,16 @@ public class BasicTests
 
         Assert.That(builderQuery, Is.EqualTo(expectedResult));
     }
+
+    [Test]
+    public async Task Introspect()
+    {
+        var query = TestData.Introspect.Query;
+        var client = new GraphQLClient();
+        var response = await client.RequestAsync(query);
+        var body = await response.Content.ReadAsStringAsync();
+        var json = JsonConvert.DeserializeObject(body);
+        Console.WriteLine(JsonConvert.SerializeObject(json, Formatting.Indented));
+        Assert.That((int)response.StatusCode, Is.EqualTo(200));
+    }
 }
