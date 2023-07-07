@@ -1,2 +1,1 @@
-# DaggerSDK
-An attempt to create a Dagger SDK for .NET
+The project is now moved to https://github.com/dagger/dagger/tree/main/sdk/dotnet.
